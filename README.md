@@ -1,0 +1,2 @@
+# myfans
+myfans.jp
