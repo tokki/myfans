@@ -55,7 +55,7 @@ def get_posts():
         total_page = 1
     else:
         total_page = math.ceil(user["posts_count"] / limit)
-    total_page = 2  #TODO for test
+    #total_page = 2  #TODO for test
     for page in range(1, total_page + 1):
         uu = url.replace("current_page", str(page))
         res = requests.get(uu, headers=headers)
@@ -150,9 +150,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if args.name:
         get_user_info(args.name)
-        mkdir(user["username"])
+        mkdir()
         posts = get_posts(user)
         for post in posts:
-            download_post(posts)
+            download_post(post)
     if args.post:
         download_one_post(args.post)
